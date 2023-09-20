@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/num1"
         android:layout_width="0dp"
@@ -28,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/num2"
         app:layout_constraintTop_toBottomOf="@id/txtMessage"
-        app:layout_constraintBottom_toTopOf="@id/num3"
+        app:layout_constraintBottom_toTopOf="@id/btnGenerate"
         />
     <TextView
         android:id="@+id/num2"
@@ -39,9 +40,9 @@
         android:background="#ffa"
         android:layout_margin="16dp"
         app:layout_constraintStart_toEndOf="@id/num1"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/num3"
         app:layout_constraintTop_toBottomOf="@id/txtMessage"
-        app:layout_constraintBottom_toTopOf="@id/num4"
+        app:layout_constraintBottom_toTopOf="@id/btnGenerate"
         />
     <TextView
         android:id="@+id/num3"
@@ -51,10 +52,10 @@
         android:text="?"
         android:background="#ffa"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/num2"
         app:layout_constraintEnd_toStartOf="@id/num4"
-        app:layout_constraintTop_toBottomOf="@id/num1"
-        app:layout_constraintBottom_toTopOf="@id/num5"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
+        app:layout_constraintBottom_toTopOf="@id/btnGenerate"
         />
     <TextView
         android:id="@+id/num4"
@@ -65,9 +66,9 @@
         android:background="#ffa"
         android:layout_margin="16dp"
         app:layout_constraintStart_toEndOf="@id/num3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/num2"
-        app:layout_constraintBottom_toTopOf="@id/num6"
+        app:layout_constraintEnd_toStartOf="@id/num5"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
+        app:layout_constraintBottom_toTopOf="@id/btnGenerate"
         />
     <TextView
         android:id="@+id/num5"
@@ -77,9 +78,9 @@
         android:text="?"
         android:background="#ffa"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/num4"
         app:layout_constraintEnd_toStartOf="@id/num6"
-        app:layout_constraintTop_toBottomOf="@id/num3"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
         app:layout_constraintBottom_toTopOf="@id/btnGenerate"
         />
     <TextView
@@ -92,7 +93,7 @@
         android:layout_margin="16dp"
         app:layout_constraintStart_toEndOf="@id/num5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/num4"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
         app:layout_constraintBottom_toTopOf="@id/btnGenerate"
         />
     <Button
