@@ -15,17 +15,11 @@ class MainActivity : AppCompatActivity() {
         main = ActivityMainBinding.inflate(layoutInflater)
         setContentView(main.root)
 
-        val card = Random.nextInt(52)
-        Log.i("Card!!!","card : "+getCardName(card));
-
-        //int type 을 return 받음 - 정수, 상수를 만들어 주기 때문에
-        val res = resources.getIdentifier(
-            getCardName(card),
-            "drawable",
-            packageName
-        )
-
-        main.card1.setImageResource(res)
+        // TODO: 하드 코딩 없앨 것
+        suffle()
+        main.shffle?.setOnClickListener {
+            suffle()
+        }
     }
 
     private fun getCardName(c: Int) : String{
@@ -47,6 +41,31 @@ class MainActivity : AppCompatActivity() {
             else -> "error"
         }
 
+        if(number.equals("jack") || number.equals("queen") || number.equals("king")){
+            return "c_${number}_of_${shape}2"
+        }
+
         return "c_${number}_of_${shape}"
+    }
+    private fun suffle(){
+        var check : IntArray;
+        for (i in 1..5) {
+            val card = Random.nextInt(52)
+            Log.i("Card!!!", "card $i: " + getCardName(card))
+
+            val res = resources.getIdentifier(
+                getCardName(card),
+                "drawable",
+                packageName
+            )
+
+            when (i) {
+                1 -> main.card1.setImageResource(res)
+                2 -> main.card2?.setImageResource(res)
+                3 -> main.card3?.setImageResource(res)
+                4 -> main.card4?.setImageResource(res)
+                5 -> main.card5?.setImageResource(res)
+            }
+        }
     }
 }
