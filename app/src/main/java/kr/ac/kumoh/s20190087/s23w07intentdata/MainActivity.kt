@@ -9,6 +9,8 @@ import kr.ac.kumoh.s20190087.s23w07intentdata.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     companion object{
         const val KEY_NAME = "location"
+        const val MOUNTAIN = "mountain" //const 붙이면 시작 될 때 넣어버림 (고정) readOnly는 같음
+        const val SEA = "sea"
     }
 
     private lateinit var main : ActivityMainBinding
@@ -21,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         main.btnMountain.setOnClickListener {
             Toast.makeText(this,"산 눌림", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ImageActivity::class.java)
-            intent.putExtra(KEY_NAME,"mountain")// key에 해당하는 부분은 string 으로, HashMap 형태로 넘겨줘야 함.
+            intent.putExtra(KEY_NAME,MOUNTAIN)// key에 해당하는 부분은 string 으로, HashMap 형태로 넘겨줘야 함.
             startActivity(intent)
         }
         main.btnSea.setOnClickListener {
             Toast.makeText(this,"바다 눌림", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ImageActivity::class.java)
-            intent.putExtra(KEY_NAME,"sea")
+            intent.putExtra(KEY_NAME,SEA)
             startActivity(intent)
         }
     }

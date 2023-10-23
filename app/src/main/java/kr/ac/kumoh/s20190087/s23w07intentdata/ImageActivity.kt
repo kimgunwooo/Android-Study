@@ -16,12 +16,11 @@ class ImageActivity : AppCompatActivity() {
 
         //Log.i("ImageActivity!!!", intent.getStringExtra("location") ?: "없음")
         val res = when (intent.getStringExtra(MainActivity.KEY_NAME)){
-            "mountain" -> R.drawable.mountain
-            "sea" -> R.drawable.sea
+            MainActivity.MOUNTAIN -> R.drawable.mountain
+            MainActivity.SEA -> R.drawable.sea
             else -> R.drawable.ic_launcher_foreground
         }
 
         main.image.setImageResource(res)
-
     }
 }
