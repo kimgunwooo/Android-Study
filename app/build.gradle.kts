@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.s23w1102counter"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.s23w1102counter"
