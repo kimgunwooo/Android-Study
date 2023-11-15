@@ -5,9 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -29,7 +32,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                Clicker()
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp),
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    //Clicker()
+                    Counter()
+                    Counter()
+                }
             }
         }
     }
@@ -73,6 +85,33 @@ fun Clicker() {
             }) {
             // Text(text = "눌러봐")
             Text("눌러봐")
+        }
+    }
+}
+
+@Composable
+fun Counter() {
+    //var count = 0;
+    val (count, setCount) = remember { mutableStateOf(0) }
+
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "$count",
+            fontSize = 70.sp,
+        )
+        Row {
+            Button(modifier = Modifier
+                .weight(1f),
+                onClick = { setCount( count + 1) }) {
+                Text(text = "증가")
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            Button(modifier = Modifier.weight(1f),
+                onClick = { if (count > 0) setCount( count - 1) }) {
+                Text(text = "감소")
+            }
         }
     }
 }
